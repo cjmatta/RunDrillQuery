@@ -64,7 +64,7 @@ aDrillHosts=($(maprcli node list -filter csvc=="drill-bits" -columns ip | awk '{
 
 if [[ ${#aDrillHosts[@]} -eq 0 ]]
 then
-    echo "Couldn't find any nodes running Drill!"
+    echo "Couldn't find any nodes running Drill! (do you have permission to run 'maprcli'?)"
     exit 1
 fi
 

@@ -8,3 +8,6 @@ This script assumes it's running on a MapR cluster, that `mapr-drill` is install
 
 ## Usage
 ./run_drill_query.sh -f file.sql [-d outputdir]
+
+### Notes
+* This script uses the `maprcli` command to figure which nodes have drill installed. If your user doesn't have permissions to run that command it will return an empty list.
