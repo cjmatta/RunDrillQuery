@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 # This is a MapR-specific script that will run a query against drill.
 # The main use of this script is to simplify the collection of log files related to a failing query.
 # It assumes that Drill is installed on the MapR host it's running on, and that you have ssh key
@@ -16,6 +16,12 @@ sOutputDir=$(pwd)
 function show_help {
     echo "$0 -f file.sql [-d outputdir]"
 }
+
+if [[ "$#" -eq 0 ]]
+then
+    show_help
+    exit 0
+fi
 
 while getopts "hf:d:" opt
 do
