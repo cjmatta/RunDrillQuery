@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 # This is a MapR-specific script that will run a query against drill.
 # The main use of this script is to simplify the collection of log files related to a failing query.
 # It assumes that Drill is installed on the MapR host it's running on, and that you have ssh key
@@ -115,6 +115,7 @@ function run_query {
 
 FILE=$(set_current_drillbit_logs)
 run_query $sQueryFile
+echo "Query returned: $?"
 get_drillbit_logs $FILE
 delete_temp_file $FILE
 
